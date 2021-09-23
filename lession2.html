@@ -9,13 +9,19 @@
 </head>
 <body>
     <!-- making dynamic value -->
-    <input type="text" name="" id="" data-bind="value: name">
+    <input type="text" name="" id="" data-bind="value: name, valueUpdate: 'keyup'">
+    <!-- without valueUpdate automatic updation will not work -->
     <h1 data-bind="text: name"></h1>
     <script>
         const obj = {
             "name": ko.observable("manish")
         }
         ko.applyBindings(obj)
+
+        obj.name.subscribe((ev) => {
+            console.log("someone changed value");
+            console.log(ev);
+        })
     </script>
 
 </body>
