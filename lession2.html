@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-	<script type="text/javascript" src="https://unpkg.com/knockout@3.5.1/build/output/knockout-latest.debug.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/knockout@3.5.1/build/output/knockout-latest.debug.js"></script>
 </head>
 <body>
-    <!-- simple binding -->
+    <!-- making dynamic value -->
+    <input type="text" name="" id="" data-bind="value: name">
     <h1 data-bind="text: name"></h1>
     <script>
         const obj = {
-            "name":"manish"
+            "name": ko.observable("manish")
         }
-
         ko.applyBindings(obj)
-        
     </script>
+
 </body>
 </html>
