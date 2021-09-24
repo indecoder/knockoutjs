@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://unpkg.com/knockout@3.5.1/build/output/knockout-latest.debug.js"></script>
+</head>
+<body>
+    <ul data-bind="foreach: friends">
+        <li>
+            <span data-bind="text: name"></span>
+            <input type="checkbox" name="" data-bind="checked: knowJS">
+            <input type="text" name="" data-bind="value: fevLib, visible: knowJS">
+        </li>
+    </ul>
+    <script>
+        function friend(name){
+            this.name = name;
+            this.knowJS = ko.observable(false);
+            this.fevLib = ko.observable('');
+        }
+        const obj = {
+            friends: ko.observableArray(
+                [
+                    new friend('Arun'), 
+                    new friend('Aaditya'),
+                    new friend('Arjun'),
+                    new friend('Sid'),
+                    new friend('Anurag')
+                ]
+            )
+        }
+
+        ko.applyBindings(obj);
+    </script>
+</body>
+</html>
